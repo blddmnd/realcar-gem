@@ -28,22 +28,22 @@ module Realcar
 
     def index options = {}
       response = get "/#{self.class.resource_name}.json", options
-      (response.values.first || []).map { |v| OpenStruct.new(v) }
+      response.values.first
     end
 
     def collection action, options = {}
       response = get "/#{self.class.resource_name}/#{action.to_s}.json", options
-      OpenStruct.new response.values.first
+      response.values.first
     end
 
     def show id, options = {}
       response = get "/#{self.class.resource_name}/#{id}.json", options
-      OpenStruct.new response.values.first
+      response.values.first
     end
 
     def member id, action, options = {}
       response = get "/#{self.class.resource_name}/#{id}/#{action.to_s}.json", options
-      OpenStruct.new response.values.first
+      response.values.first
     end
 
   end

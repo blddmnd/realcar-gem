@@ -27,8 +27,8 @@ Or install it yourself as:
     Realcar::Client.set_api_url 'http://localhost:3000'
 
     c = Realcar::Cars.new
-    c.index(params) # => [OpenStruct_Car_Objects]
-    c.show(1, params) # => OpenStruct_Car_Object
+    c.index(params)
+    c.show(1, params)
     c.collection(:some_collection_action, params)
     c.member(3, :some_member_action, params)
 

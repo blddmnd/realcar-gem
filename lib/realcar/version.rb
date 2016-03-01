@@ -1,3 +1,3 @@
 module Realcar
-  VERSION = "1.1.3"
+  VERSION = "2.8.0"
 end
