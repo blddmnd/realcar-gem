@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alexander Morozov"]
   spec.email         = ["oleksandr.morozov@customertimes.com"]
 
-  spec.summary       = 'Gem for using RealCar api'
-  spec.description   = 'Gem for using RealCar api'
-  spec.homepage      = ''
+  spec.summary       = 'Gem for using RealCar API'
+  spec.description   = 'Gem for using RealCar API'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

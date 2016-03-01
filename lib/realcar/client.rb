@@ -6,24 +6,21 @@ module Realcar
     include HTTParty
     include Realcar::Connection
 
-    @@api_url = 'http://localhost:3000/api/v1/'
-    base_uri @@api_url
+    base_uri 'http://localhost:3000/api/v1/'
+    format :json
 
     class << self
       attr_accessor :resource_name
 
-      def set_api_url url
-        @@api_url = url
+      def api_url= url
         base_uri url
       end
     end
 
-    format :json
-
-    def initialize
-      if self.class < Realcar::Client
-        self.class.base_uri self.class.superclass.base_uri
-      end
+    def initialize *args
+      raise "Cannot directly instantiate an #{self.class}" if self.class == Client
+      self.class.base_uri self.class.superclass.base_uri
+      super
     end
 
     def index options = {}
@@ -47,5 +44,4 @@ module Realcar
     end
 
   end
-
 end

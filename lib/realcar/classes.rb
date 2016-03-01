@@ -1,6 +1,7 @@
 require 'active_support'
 
 module Realcar
+
   CLASSES = ['Cars', 'PricingRules', 'Services']
 
   CLASSES.each do |c|
