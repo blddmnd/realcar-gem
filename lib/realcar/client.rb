@@ -26,21 +26,29 @@ module Realcar
     def index options = {}
       response = get "/#{self.class.resource_name}.json", options
       response.values.first
+    rescue => e
+      []
     end
 
     def collection action, options = {}
       response = get "/#{self.class.resource_name}/#{action.to_s}.json", options
       response.values.first
+    rescue => e
+      []
     end
 
     def show id, options = {}
       response = get "/#{self.class.resource_name}/#{id}.json", options
       response.values.first
+    rescue => e
+      nil
     end
 
     def member id, action, options = {}
       response = get "/#{self.class.resource_name}/#{id}/#{action.to_s}.json", options
       response.values.first
+    rescue => e
+      nil
     end
 
   end
