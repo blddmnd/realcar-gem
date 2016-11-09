@@ -54,7 +54,7 @@ module Realcar
     private
 
     def parsed_response response
-      response.except(:status, :unread_message_count, :unreadMessageCount).values.first
+      response.symbolize_keys.except(:status, :unread_message_count, :unreadMessageCount).values.first
     end
   end
 end
