@@ -25,31 +25,36 @@ module Realcar
 
     def index options = {}
       response = get "/#{self.class.resource_name}.json", options
-      response.values.first
+      parsed_response response
     rescue => e
       []
     end
 
     def collection action, options = {}
       response = get "/#{self.class.resource_name}/#{action.to_s}.json", options
-      response.values.first
+      parsed_response response
     rescue => e
       []
     end
 
     def show id, options = {}
       response = get "/#{self.class.resource_name}/#{id}.json", options
-      response.values.first
+      parsed_response response
     rescue => e
       nil
     end
 
     def member id, action, options = {}
       response = get "/#{self.class.resource_name}/#{id}/#{action.to_s}.json", options
-      response.values.first
+      parsed_response response
     rescue => e
       nil
     end
 
+    private
+
+    def parsed_response response
+      response.except(:status, :unread_message_count, :unreadMessageCount).values.first
+    end
   end
 end
